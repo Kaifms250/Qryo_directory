@@ -20,6 +20,7 @@ export default function ChatRoom() {
   );
 
   const { messages, loading, sendMessage } = useChat(communityId || "");
+  const onlineCount = usePresence(communityId || "", username);
 
   // Redirect if no username
   useEffect(() => {
