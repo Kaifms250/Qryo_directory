@@ -1,12 +1,16 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { communities } from "@/lib/communities";
 import { CommunityCard } from "@/components/CommunityCard";
+import { usePresenceCounts } from "@/hooks/usePresence";
 import { MessageCircle, Zap } from "lucide-react";
 
 export default function Index() {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
+
+  const communityIds = useMemo(() => communities.map((c) => c.id), []);
+  const onlineCounts = usePresenceCounts(communityIds, username.trim());
 
   const handleJoin = (communityId: string) => {
     const name = username.trim();
@@ -19,7 +23,6 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-5xl mx-auto px-4 py-12 md:py-20">
@@ -43,6 +46,9 @@ export default function Index() {
           className="max-w-sm mx-auto mb-12 opacity-0 animate-fade-in"
           style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
         >
+          <p className="text-sm font-medium text-primary mb-3 text-center tracking-wide">
+            Enter a username to unlock communities
+          </p>
           <div className="relative">
             <MessageCircle className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
@@ -66,16 +72,11 @@ export default function Index() {
               key={community.id}
               community={community}
               index={i}
+              onlineCount={onlineCounts[community.id] || 0}
               onClick={() => handleJoin(community.id)}
             />
           ))}
         </div>
-
-        {!isReady && (
-          <p className="text-center text-sm text-muted-foreground mt-6 animate-pulse-glow">
-            Enter a username to unlock communities
-          </p>
-        )}
       </div>
     </div>
   );

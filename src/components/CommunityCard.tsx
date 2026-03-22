@@ -4,10 +4,11 @@ import { Users } from "lucide-react";
 interface CommunityCardProps {
   community: Community;
   index: number;
+  onlineCount: number;
   onClick: () => void;
 }
 
-export function CommunityCard({ community, index, onClick }: CommunityCardProps) {
+export function CommunityCard({ community, index, onlineCount, onClick }: CommunityCardProps) {
   return (
     <button
       onClick={onClick}
@@ -22,10 +23,7 @@ export function CommunityCard({ community, index, onClick }: CommunityCardProps)
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
         />
-        {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-
-        {/* Emoji floating */}
         <span className="absolute top-3 right-3 text-2xl opacity-80 group-hover:animate-float transition-all">
           {community.emoji}
         </span>
@@ -38,13 +36,13 @@ export function CommunityCard({ community, index, onClick }: CommunityCardProps)
         </h3>
         <p className="text-sm text-muted-foreground mb-2">{community.description}</p>
         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+          <span className={`h-2 w-2 rounded-full ${onlineCount > 0 ? "bg-green-500 animate-pulse" : "bg-muted-foreground/40"}`} />
           <Users className="h-3 w-3" />
-          <span>{community.memberCount.toLocaleString()} online</span>
+          <span>{onlineCount} online</span>
         </div>
       </div>
 
-      {/* Hover border glow */}
-      <div className={`absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/40 transition-all duration-300 pointer-events-none`} />
+      <div className="absolute inset-0 rounded-xl border-2 border-primary/0 group-hover:border-primary/40 transition-all duration-300 pointer-events-none" />
     </button>
   );
 }

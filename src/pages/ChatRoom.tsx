@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { communities } from "@/lib/communities";
 import { useChat } from "@/hooks/useChat";
+import { usePresence } from "@/hooks/usePresence";
 import { ChatMessage } from "@/components/ChatMessage";
 import { ArrowLeft, Send, Users, Loader2 } from "lucide-react";
 
@@ -19,6 +20,7 @@ export default function ChatRoom() {
   );
 
   const { messages, loading, sendMessage } = useChat(communityId || "");
+  const onlineCount = usePresence(communityId || "", username);
 
   // Redirect if no username
   useEffect(() => {
@@ -56,7 +58,7 @@ export default function ChatRoom() {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         </div>
 
         <div className="relative flex items-center gap-3 px-4 py-3">
@@ -73,8 +75,9 @@ export default function ChatRoom() {
               <h1 className="font-bold text-foreground truncate">{community.name}</h1>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <span className={`h-2 w-2 rounded-full ${onlineCount > 0 ? "bg-green-500 animate-pulse" : "bg-muted-foreground/40"}`} />
               <Users className="h-3 w-3" />
-              <span>{community.memberCount.toLocaleString()} online</span>
+              <span>{onlineCount} online</span>
             </div>
           </div>
         </div>
