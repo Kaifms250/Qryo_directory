@@ -6,7 +6,7 @@ import { usePresenceCounts } from "@/hooks/usePresence";
 import { MessageCircle, Zap } from "lucide-react";
 
 export default function Index() {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(() => localStorage.getItem("chat-username") || "");
   const navigate = useNavigate();
 
   const communityIds = useMemo(() => communities.map((c) => c.id), []);
