@@ -58,7 +58,7 @@ export default function ChatRoom() {
             alt=""
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
         </div>
 
         <div className="relative flex items-center gap-3 px-4 py-3">
