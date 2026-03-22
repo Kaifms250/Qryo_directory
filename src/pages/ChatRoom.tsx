@@ -13,7 +13,7 @@ export default function ChatRoom() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const username = sessionStorage.getItem("chat-username") || "";
+  const username = localStorage.getItem("chat-username") || "";
   const community = useMemo(
     () => communities.find((c) => c.id === communityId),
     [communityId]
@@ -49,17 +49,19 @@ export default function ChatRoom() {
   };
 
   return (
-    <div className={`h-screen flex flex-col bg-background ${community.theme}`}>
-      {/* Header with background image */}
-      <div className="relative flex-shrink-0">
-        <div className="absolute inset-0 h-28">
-          <img
-            src={community.image}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
-        </div>
+    <div className={`h-screen flex flex-col relative ${community.theme}`}>
+      {/* Full-screen background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={community.image}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/50" />
+      </div>
+
+      {/* Header */}
+      <div className="relative z-10 flex-shrink-0">
 
         <div className="relative flex items-center gap-3 px-4 py-3">
           <button
@@ -84,7 +86,7 @@ export default function ChatRoom() {
       {/* Messages */}
       <div
         ref={scrollRef}
-        className="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin"
+        className="relative z-10 flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin"
       >
         {loading ? (
           <div className="flex items-center justify-center h-full">
@@ -105,7 +107,7 @@ export default function ChatRoom() {
       </div>
 
       {/* Input */}
-      <div className="flex-shrink-0 px-4 pb-4 pt-2">
+      <div className="relative z-10 flex-shrink-0 px-4 pb-4 pt-2">
         <div className="flex items-center gap-2 bg-card border border-border rounded-xl px-3 py-2">
           <input
             ref={inputRef}
