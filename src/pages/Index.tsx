@@ -74,11 +74,6 @@ export default function Index() {
           ))}
         </div>
 
-        {!isReady && (
-          <p className="text-center text-sm text-muted-foreground mt-6 animate-pulse-glow">
-            Enter a username to unlock communities
-          </p>
-        )}
       </div>
     </div>
   );
