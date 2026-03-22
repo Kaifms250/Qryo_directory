@@ -49,17 +49,19 @@ export default function ChatRoom() {
   };
 
   return (
-    <div className={`h-screen flex flex-col bg-background ${community.theme}`}>
-      {/* Header with background image */}
-      <div className="relative flex-shrink-0">
-        <div className="absolute inset-0 h-28">
-          <img
-            src={community.image}
-            alt=""
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
-        </div>
+    <div className={`h-screen flex flex-col relative ${community.theme}`}>
+      {/* Full-screen background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={community.image}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/50" />
+      </div>
+
+      {/* Header */}
+      <div className="relative z-10 flex-shrink-0">
 
         <div className="relative flex items-center gap-3 px-4 py-3">
           <button

@@ -15,7 +15,7 @@ export default function Index() {
   const handleJoin = (communityId: string) => {
     const name = username.trim();
     if (!name) return;
-    sessionStorage.setItem("chat-username", name);
+    localStorage.setItem("chat-username", name);
     navigate(`/chat/${communityId}`);
   };
 
