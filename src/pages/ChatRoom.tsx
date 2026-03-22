@@ -92,7 +92,7 @@ export default function ChatRoom() {
           </div>
         ) : messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center">
-            <span className="text-4xl mb-3">{community.emoji}</span>
+            
             <p className="text-muted-foreground text-sm">
               Be the first to say something in {community.name}!
             </p>
