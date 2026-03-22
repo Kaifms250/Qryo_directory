@@ -70,8 +70,7 @@ export default function ChatRoom() {
           </button>
 
           <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="text-lg">{community.emoji}</span>
+            <div className="flex items-center">
               <h1 className="font-bold text-foreground truncate">{community.name}</h1>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
