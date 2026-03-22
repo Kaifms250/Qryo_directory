@@ -13,7 +13,7 @@ export default function ChatRoom() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const username = sessionStorage.getItem("chat-username") || "";
+  const username = localStorage.getItem("chat-username") || "";
   const community = useMemo(
     () => communities.find((c) => c.id === communityId),
     [communityId]
