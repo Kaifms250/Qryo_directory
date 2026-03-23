@@ -40,5 +40,64 @@
     "musicDesc": "Feel the rhythm",
     "art": "Art",
     "artDesc": "Create without limits"
+  },
+  "rooms": {
+    "title": "Custom Rooms",
+    "create": "Create Room",
+    "createTitle": "Create a New Room",
+    "namePlaceholder": "Room name...",
+    "descPlaceholder": "Description (optional)...",
+    "private": "Private room",
+    "creating": "Creating...",
+    "join": "Join Room",
+    "joinTitle": "Join by Room ID",
+    "idPlaceholder": "Enter room ID...",
+    "notFound": "Room not found. Check the ID and try again.",
+    "id": "ID",
+    "by": "by",
+    "noRooms": "No rooms yet in this community. Create one!",
+    "idCopied": "Room ID copied!",
+    "copyId": "Copy Room ID",
+    "adminControls": "Admin Controls",
+    "kick": "Kick user",
+    "mute": "Mute user",
+    "unmute": "Unmute user",
+    "youAreMuted": "You are muted in this room."
+  },
+  "polls": {
+    "poll": "Poll",
+    "create": "Create Poll",
+    "createTitle": "Create a Poll",
+    "questionPlaceholder": "Ask a question...",
+    "option": "Option",
+    "addOption": "Add option",
+    "votes": "votes"
+  },
+  "badges": {
+    "giveToUser": "Give {{user}} a badge",
+    "alreadyGiven": "You've already given this badge!",
+    "given": "{{badge}} badge given!"
+  },
+  "accounts": {
+    "title": "Your Accounts",
+    "add": "Add Account",
+    "newPlaceholder": "New username..."
+  },
+  "profile": {
+    "customize": "Customize Profile",
+    "title": "Your Profile",
+    "avatarStyle": "Avatar Style",
+    "bubbleColor": "Chat Bubble Color",
+    "bio": "Bio",
+    "bioPlaceholder": "Tell people about yourself..."
+  },
+  "voice": {
+    "hold": "Hold to record",
+    "stop": "Release to send",
+    "tooLong": "Voice messages can't exceed 60 seconds.",
+    "noPermission": "Microphone access denied."
+  },
+  "icebreaker": {
+    "click": "Click to use as your message"
   }
 }

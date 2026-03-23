@@ -9,6 +9,8 @@ export interface Message {
   created_at: string;
   room_id?: string | null;
   message_type: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  metadata?: any;
   metadata?: Record<string, unknown>;
 }
 
