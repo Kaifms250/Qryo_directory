@@ -1,12 +1,19 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { communities } from "@/lib/communities";
 import { useChat } from "@/hooks/useChat";
 import { usePresence } from "@/hooks/usePresence";
 import { ChatMessage } from "@/components/ChatMessage";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { sanitizeInput, createRateLimiter } from "@/lib/sanitize";
 import { ArrowLeft, Send, Loader2 } from "lucide-react";
+import { toast } from "sonner";
+
+const messageRateLimiter = createRateLimiter(1500);
 
 export default function ChatRoom() {
+  const { t } = useTranslation();
   const { communityId } = useParams<{ communityId: string }>();
   const navigate = useNavigate();
   const [input, setInput] = useState("");
@@ -22,12 +29,10 @@ export default function ChatRoom() {
   const { messages, loading, sendMessage } = useChat(communityId || "");
   const onlineCount = usePresence(communityId || "", username);
 
-  // Redirect if no username
   useEffect(() => {
     if (!username) navigate("/", { replace: true });
   }, [username, navigate]);
 
-  // Auto-scroll
   useEffect(() => {
     const el = scrollRef.current;
     if (el) {
@@ -41,10 +46,16 @@ export default function ChatRoom() {
   }
 
   const handleSend = async () => {
-    if (!input.trim()) return;
-    const msg = input;
+    const sanitized = sanitizeInput(input);
+    if (!sanitized) return;
+
+    if (!messageRateLimiter.canProceed()) {
+      toast.error(t("chat.rateLimited"));
+      return;
+    }
+
     setInput("");
-    await sendMessage(username, msg);
+    await sendMessage(username, sanitized);
     inputRef.current?.focus();
   };
 
@@ -62,7 +73,6 @@ export default function ChatRoom() {
 
       {/* Header */}
       <div className="relative z-10 flex-shrink-0">
-
         <div className="relative flex items-center gap-3 px-4 py-3">
           <button
             onClick={() => navigate("/")}
@@ -73,13 +83,17 @@ export default function ChatRoom() {
 
           <div className="flex-1 min-w-0">
             <div className="flex items-center">
-              <h1 className="font-bold text-foreground truncate">{community.name}</h1>
+              <h1 className="font-bold text-foreground truncate">
+                {t(`communities.${community.id}`)}
+              </h1>
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <span className={`h-2 w-2 rounded-full ${onlineCount > 0 ? "bg-green-500 animate-pulse" : "bg-muted-foreground/40"}`} />
-              <span>{onlineCount} online</span>
+              <span>{onlineCount} {t("chat.online")}</span>
             </div>
           </div>
+
+          <LanguageSwitcher />
         </div>
       </div>
 
@@ -94,9 +108,8 @@ export default function ChatRoom() {
           </div>
         ) : messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center">
-            
             <p className="text-muted-foreground text-sm">
-              Be the first to say something in {community.name}!
+              {t("chat.beFirst", { name: t(`communities.${community.id}`) })}
             </p>
           </div>
         ) : (
@@ -115,7 +128,7 @@ export default function ChatRoom() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            placeholder={`Message ${community.name}...`}
+            placeholder={t("chat.messagePlaceholder", { name: t(`communities.${community.id}`) })}
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
             maxLength={500}
           />

@@ -1,0 +1,44 @@
+{
+  "header": {
+    "tagline": "Comunidades en tiempo real",
+    "title": "Encuentra Tu",
+    "titleHighlight": "Tribu",
+    "subtitle": "Únete a salas de chat temáticas y conecta con personas que comparten tus pasiones."
+  },
+  "username": {
+    "prompt": "Ingresa un nombre de usuario para desbloquear comunidades",
+    "placeholder": "Elige un nombre de usuario...",
+    "minChars": "Al menos 2 caracteres"
+  },
+  "chat": {
+    "online": "en línea",
+    "messagePlaceholder": "Mensaje a {{name}}...",
+    "beFirst": "¡Sé el primero en decir algo en {{name}}!",
+    "rateLimited": "¡Más despacio! Espera un momento antes de enviar de nuevo.",
+    "report": "Reportar mensaje",
+    "reported": "Mensaje reportado. ¡Gracias!",
+    "pinned": "Fijado"
+  },
+  "language": {
+    "label": "Idioma",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "hi": "हिन्दी"
+  },
+  "communities": {
+    "gaming": "Juegos",
+    "gamingDesc": "Sube de nivel con otros gamers",
+    "tech": "Tecnología",
+    "techDesc": "Construye el futuro juntos",
+    "anime": "Anime",
+    "animeDesc": "Tu santuario otaku",
+    "nature": "Naturaleza",
+    "natureDesc": "Explora el mundo salvaje",
+    "music": "Música",
+    "musicDesc": "Siente el ritmo",
+    "art": "Arte",
+    "artDesc": "Crea sin límites"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "header": {
+    "tagline": "Real-time communities",
+    "title": "Find Your",
+    "titleHighlight": "Tribe",
+    "subtitle": "Jump into themed chat rooms and connect with people who share your passions."
+  },
+  "username": {
+    "prompt": "Enter a username to unlock communities",
+    "placeholder": "Choose a username...",
+    "minChars": "At least 2 characters"
+  },
+  "chat": {
+    "online": "online",
+    "messagePlaceholder": "Message {{name}}...",
+    "beFirst": "Be the first to say something in {{name}}!",
+    "rateLimited": "Slow down! Wait a moment before sending again.",
+    "report": "Report message",
+    "reported": "Message reported. Thanks!",
+    "pinned": "Pinned"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "hi": "हिन्दी"
+  },
+  "communities": {
+    "gaming": "Gaming",
+    "gamingDesc": "Level up with fellow gamers",
+    "tech": "Tech",
+    "techDesc": "Build the future together",
+    "anime": "Anime",
+    "animeDesc": "Your otaku sanctuary",
+    "nature": "Nature",
+    "natureDesc": "Explore the wild world",
+    "music": "Music",
+    "musicDesc": "Feel the rhythm",
+    "art": "Art",
+    "artDesc": "Create without limits"
+  }
+}

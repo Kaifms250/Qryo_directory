@@ -1,4 +1,5 @@
 import { type Community } from "@/lib/communities";
+import { useTranslation } from "react-i18next";
 import { Users } from "lucide-react";
 
 interface CommunityCardProps {
@@ -9,6 +10,8 @@ interface CommunityCardProps {
 }
 
 export function CommunityCard({ community, index, onlineCount, onClick }: CommunityCardProps) {
+  const { t } = useTranslation();
+
   return (
     <button
       onClick={onClick}
@@ -19,7 +22,7 @@ export function CommunityCard({ community, index, onlineCount, onClick }: Commun
       <div className="relative aspect-[16/10] overflow-hidden">
         <img
           src={community.image}
-          alt={community.name}
+          alt={t(`communities.${community.id}`)}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           loading="lazy"
         />
@@ -29,13 +32,13 @@ export function CommunityCard({ community, index, onlineCount, onClick }: Commun
       {/* Content */}
       <div className="relative px-4 pb-4 -mt-8">
         <h3 className="text-lg font-bold text-foreground mb-0.5 group-hover:text-primary transition-colors">
-          {community.name}
+          {t(`communities.${community.id}`)}
         </h3>
-        <p className="text-sm text-muted-foreground mb-2">{community.description}</p>
+        <p className="text-sm text-muted-foreground mb-2">{t(`communities.${community.id}Desc`)}</p>
         <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
           <span className={`h-2 w-2 rounded-full ${onlineCount > 0 ? "bg-green-500 animate-pulse" : "bg-muted-foreground/40"}`} />
           <Users className="h-3 w-3" />
-          <span>{onlineCount} online</span>
+          <span>{onlineCount} {t("chat.online")}</span>
         </div>
       </div>
 

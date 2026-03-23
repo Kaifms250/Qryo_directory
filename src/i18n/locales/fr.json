@@ -1,0 +1,44 @@
+{
+  "header": {
+    "tagline": "Communautés en temps réel",
+    "title": "Trouve Ta",
+    "titleHighlight": "Tribu",
+    "subtitle": "Rejoins des salons de discussion thématiques et connecte-toi avec des gens qui partagent tes passions."
+  },
+  "username": {
+    "prompt": "Entre un nom d'utilisateur pour débloquer les communautés",
+    "placeholder": "Choisis un nom d'utilisateur...",
+    "minChars": "Au moins 2 caractères"
+  },
+  "chat": {
+    "online": "en ligne",
+    "messagePlaceholder": "Message à {{name}}...",
+    "beFirst": "Sois le premier à dire quelque chose dans {{name}} !",
+    "rateLimited": "Doucement ! Attends un instant avant de renvoyer.",
+    "report": "Signaler le message",
+    "reported": "Message signalé. Merci !",
+    "pinned": "Épinglé"
+  },
+  "language": {
+    "label": "Langue",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "hi": "हिन्दी"
+  },
+  "communities": {
+    "gaming": "Jeux vidéo",
+    "gamingDesc": "Monte en niveau avec d'autres joueurs",
+    "tech": "Tech",
+    "techDesc": "Construis l'avenir ensemble",
+    "anime": "Anime",
+    "animeDesc": "Ton sanctuaire otaku",
+    "nature": "Nature",
+    "natureDesc": "Explore le monde sauvage",
+    "music": "Musique",
+    "musicDesc": "Ressens le rythme",
+    "art": "Art",
+    "artDesc": "Crée sans limites"
+  }
+}
