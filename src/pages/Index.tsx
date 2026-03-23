@@ -1,11 +1,14 @@
 import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { communities } from "@/lib/communities";
 import { CommunityCard } from "@/components/CommunityCard";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { usePresenceCounts } from "@/hooks/usePresence";
 import { MessageCircle, Zap } from "lucide-react";
 
 export default function Index() {
+  const { t } = useTranslation();
   const [username, setUsername] = useState(() => localStorage.getItem("chat-username") || "");
   const navigate = useNavigate();
 
@@ -25,19 +28,24 @@ export default function Index() {
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
+      {/* Language switcher */}
+      <div className="absolute top-4 end-4 z-20">
+        <LanguageSwitcher />
+      </div>
+
       <div className="relative max-w-5xl mx-auto px-4 py-12 md:py-20">
         {/* Header */}
         <div className="text-center mb-10 opacity-0 animate-fade-in" style={{ animationFillMode: "forwards" }}>
           <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-4 py-1.5 text-sm text-primary font-medium mb-5">
             <Zap className="h-3.5 w-3.5" />
-            Real-time communities
+            {t("header.tagline")}
           </div>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-3">
-            Find Your{" "}
-            <span className="text-primary text-glow">Tribe</span>
+            {t("header.title")}{" "}
+            <span className="text-primary text-glow">{t("header.titleHighlight")}</span>
           </h1>
           <p className="text-muted-foreground text-lg max-w-md mx-auto">
-            Jump into themed chat rooms and connect with people who share your passions.
+            {t("header.subtitle")}
           </p>
         </div>
 
@@ -47,21 +55,21 @@ export default function Index() {
           style={{ animationDelay: "100ms", animationFillMode: "forwards" }}
         >
           <p className="text-sm font-medium text-primary mb-3 text-center tracking-wide">
-            Enter a username to unlock communities
+            {t("username.prompt")}
           </p>
           <div className="relative">
-            <MessageCircle className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <MessageCircle className="absolute start-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <input
               type="text"
-              placeholder="Choose a username..."
+              placeholder={t("username.placeholder")}
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               maxLength={20}
-              className="w-full rounded-xl border border-border bg-card pl-10 pr-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
+              className="w-full rounded-xl border border-border bg-card ps-10 pe-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-all"
             />
           </div>
           {!isReady && username.length > 0 && (
-            <p className="text-xs text-muted-foreground mt-1.5 ml-1">At least 2 characters</p>
+            <p className="text-xs text-muted-foreground mt-1.5 ms-1">{t("username.minChars")}</p>
           )}
         </div>
 
