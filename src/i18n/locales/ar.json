@@ -40,5 +40,64 @@
     "musicDesc": "اشعر بالإيقاع",
     "art": "الفن",
     "artDesc": "أبدع بلا حدود"
+  },
+  "rooms": {
+    "title": "غرف مخصصة",
+    "create": "إنشاء غرفة",
+    "createTitle": "إنشاء غرفة جديدة",
+    "namePlaceholder": "اسم الغرفة...",
+    "descPlaceholder": "وصف (اختياري)...",
+    "private": "غرفة خاصة",
+    "creating": "جاري الإنشاء...",
+    "join": "انضمام",
+    "joinTitle": "انضم بمعرف الغرفة",
+    "idPlaceholder": "أدخل معرف الغرفة...",
+    "notFound": "الغرفة غير موجودة.",
+    "id": "المعرف",
+    "by": "بواسطة",
+    "noRooms": "لا توجد غرف بعد. أنشئ واحدة!",
+    "idCopied": "تم نسخ معرف الغرفة!",
+    "copyId": "نسخ المعرف",
+    "adminControls": "أدوات المشرف",
+    "kick": "طرد",
+    "mute": "كتم",
+    "unmute": "إلغاء الكتم",
+    "youAreMuted": "أنت مكتوم في هذه الغرفة."
+  },
+  "polls": {
+    "poll": "استطلاع",
+    "create": "إنشاء استطلاع",
+    "createTitle": "إنشاء استطلاع",
+    "questionPlaceholder": "اطرح سؤالاً...",
+    "option": "خيار",
+    "addOption": "إضافة خيار",
+    "votes": "أصوات"
+  },
+  "badges": {
+    "giveToUser": "امنح {{user}} شارة",
+    "alreadyGiven": "لقد منحت هذه الشارة بالفعل!",
+    "given": "تم منح شارة {{badge}}!"
+  },
+  "accounts": {
+    "title": "حساباتك",
+    "add": "إضافة حساب",
+    "newPlaceholder": "اسم مستخدم جديد..."
+  },
+  "profile": {
+    "customize": "تخصيص الملف",
+    "title": "ملفك الشخصي",
+    "avatarStyle": "نمط الصورة الرمزية",
+    "bubbleColor": "لون فقاعة الدردشة",
+    "bio": "نبذة",
+    "bioPlaceholder": "أخبر الناس عن نفسك..."
+  },
+  "voice": {
+    "hold": "اضغط مطولاً للتسجيل",
+    "stop": "حرر للإرسال",
+    "tooLong": "الرسائل الصوتية لا تتجاوز 60 ثانية.",
+    "noPermission": "تم رفض الوصول للميكروفون."
+  },
+  "icebreaker": {
+    "click": "انقر لاستخدامها كرسالة"
   }
 }

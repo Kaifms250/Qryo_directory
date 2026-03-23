@@ -40,5 +40,64 @@
     "musicDesc": "Siente el ritmo",
     "art": "Arte",
     "artDesc": "Crea sin límites"
+  },
+  "rooms": {
+    "title": "Salas Personalizadas",
+    "create": "Crear Sala",
+    "createTitle": "Crear Nueva Sala",
+    "namePlaceholder": "Nombre de la sala...",
+    "descPlaceholder": "Descripción (opcional)...",
+    "private": "Sala privada",
+    "creating": "Creando...",
+    "join": "Unirse",
+    "joinTitle": "Unirse por ID",
+    "idPlaceholder": "Ingresa el ID...",
+    "notFound": "Sala no encontrada.",
+    "id": "ID",
+    "by": "por",
+    "noRooms": "No hay salas aún. ¡Crea una!",
+    "idCopied": "¡ID copiado!",
+    "copyId": "Copiar ID",
+    "adminControls": "Controles de Admin",
+    "kick": "Expulsar",
+    "mute": "Silenciar",
+    "unmute": "Activar sonido",
+    "youAreMuted": "Estás silenciado en esta sala."
+  },
+  "polls": {
+    "poll": "Encuesta",
+    "create": "Crear Encuesta",
+    "createTitle": "Crear Encuesta",
+    "questionPlaceholder": "Haz una pregunta...",
+    "option": "Opción",
+    "addOption": "Agregar opción",
+    "votes": "votos"
+  },
+  "badges": {
+    "giveToUser": "Dale a {{user}} una insignia",
+    "alreadyGiven": "¡Ya diste esta insignia!",
+    "given": "¡Insignia de {{badge}} otorgada!"
+  },
+  "accounts": {
+    "title": "Tus Cuentas",
+    "add": "Agregar Cuenta",
+    "newPlaceholder": "Nuevo nombre..."
+  },
+  "profile": {
+    "customize": "Personalizar Perfil",
+    "title": "Tu Perfil",
+    "avatarStyle": "Estilo de Avatar",
+    "bubbleColor": "Color de Burbuja",
+    "bio": "Bio",
+    "bioPlaceholder": "Cuéntale a la gente sobre ti..."
+  },
+  "voice": {
+    "hold": "Mantén presionado para grabar",
+    "stop": "Suelta para enviar",
+    "tooLong": "Los mensajes de voz no pueden exceder 60 segundos.",
+    "noPermission": "Acceso al micrófono denegado."
+  },
+  "icebreaker": {
+    "click": "Clic para usar como mensaje"
   }
 }

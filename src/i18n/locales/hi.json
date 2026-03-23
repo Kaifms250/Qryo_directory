@@ -40,5 +40,64 @@
     "musicDesc": "ताल को महसूस करें",
     "art": "कला",
     "artDesc": "बिना सीमा के बनाएं"
+  },
+  "rooms": {
+    "title": "कस्टम रूम",
+    "create": "रूम बनाएं",
+    "createTitle": "नया रूम बनाएं",
+    "namePlaceholder": "रूम का नाम...",
+    "descPlaceholder": "विवरण (वैकल्पिक)...",
+    "private": "निजी रूम",
+    "creating": "बना रहे हैं...",
+    "join": "शामिल हों",
+    "joinTitle": "ID से शामिल हों",
+    "idPlaceholder": "रूम ID दर्ज करें...",
+    "notFound": "रूम नहीं मिला।",
+    "id": "ID",
+    "by": "द्वारा",
+    "noRooms": "अभी कोई रूम नहीं। एक बनाएं!",
+    "idCopied": "रूम ID कॉपी हो गई!",
+    "copyId": "ID कॉपी करें",
+    "adminControls": "व्यवस्थापक नियंत्रण",
+    "kick": "निकालें",
+    "mute": "म्यूट करें",
+    "unmute": "अनम्यूट करें",
+    "youAreMuted": "इस रूम में आप म्यूट हैं।"
+  },
+  "polls": {
+    "poll": "मतदान",
+    "create": "मतदान बनाएं",
+    "createTitle": "मतदान बनाएं",
+    "questionPlaceholder": "सवाल पूछें...",
+    "option": "विकल्प",
+    "addOption": "विकल्प जोड़ें",
+    "votes": "वोट"
+  },
+  "badges": {
+    "giveToUser": "{{user}} को बैज दें",
+    "alreadyGiven": "आपने यह बैज पहले ही दिया है!",
+    "given": "{{badge}} बैज दिया गया!"
+  },
+  "accounts": {
+    "title": "आपके खाते",
+    "add": "खाता जोड़ें",
+    "newPlaceholder": "नया नाम..."
+  },
+  "profile": {
+    "customize": "प्रोफाइल अनुकूलित करें",
+    "title": "आपकी प्रोफ़ाइल",
+    "avatarStyle": "अवतार शैली",
+    "bubbleColor": "चैट बबल रंग",
+    "bio": "बायो",
+    "bioPlaceholder": "अपने बारे में बताएं..."
+  },
+  "voice": {
+    "hold": "रिकॉर्ड करने के लिए दबाएं",
+    "stop": "भेजने के लिए छोड़ें",
+    "tooLong": "वॉयस संदेश 60 सेकंड से अधिक नहीं।",
+    "noPermission": "माइक्रोफ़ोन एक्सेस अस्वीकृत।"
+  },
+  "icebreaker": {
+    "click": "संदेश के रूप में उपयोग करने के लिए क्लिक करें"
   }
 }

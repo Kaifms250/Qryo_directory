@@ -40,5 +40,64 @@
     "musicDesc": "Ressens le rythme",
     "art": "Art",
     "artDesc": "Crée sans limites"
+  },
+  "rooms": {
+    "title": "Salons Personnalisés",
+    "create": "Créer un Salon",
+    "createTitle": "Créer un Nouveau Salon",
+    "namePlaceholder": "Nom du salon...",
+    "descPlaceholder": "Description (optionnel)...",
+    "private": "Salon privé",
+    "creating": "Création...",
+    "join": "Rejoindre",
+    "joinTitle": "Rejoindre par ID",
+    "idPlaceholder": "Entrez l'ID...",
+    "notFound": "Salon introuvable.",
+    "id": "ID",
+    "by": "par",
+    "noRooms": "Aucun salon. Créez-en un !",
+    "idCopied": "ID copié !",
+    "copyId": "Copier l'ID",
+    "adminControls": "Contrôles Admin",
+    "kick": "Expulser",
+    "mute": "Couper le son",
+    "unmute": "Rétablir le son",
+    "youAreMuted": "Vous êtes muet dans ce salon."
+  },
+  "polls": {
+    "poll": "Sondage",
+    "create": "Créer un Sondage",
+    "createTitle": "Créer un Sondage",
+    "questionPlaceholder": "Posez une question...",
+    "option": "Option",
+    "addOption": "Ajouter une option",
+    "votes": "votes"
+  },
+  "badges": {
+    "giveToUser": "Donner un badge à {{user}}",
+    "alreadyGiven": "Vous avez déjà donné ce badge !",
+    "given": "Badge {{badge}} donné !"
+  },
+  "accounts": {
+    "title": "Vos Comptes",
+    "add": "Ajouter un Compte",
+    "newPlaceholder": "Nouveau nom..."
+  },
+  "profile": {
+    "customize": "Personnaliser le Profil",
+    "title": "Votre Profil",
+    "avatarStyle": "Style d'Avatar",
+    "bubbleColor": "Couleur de Bulle",
+    "bio": "Bio",
+    "bioPlaceholder": "Parlez de vous..."
+  },
+  "voice": {
+    "hold": "Maintenez pour enregistrer",
+    "stop": "Relâchez pour envoyer",
+    "tooLong": "Les messages vocaux ne dépassent pas 60 secondes.",
+    "noPermission": "Accès au microphone refusé."
+  },
+  "icebreaker": {
+    "click": "Cliquez pour utiliser comme message"
   }
 }
