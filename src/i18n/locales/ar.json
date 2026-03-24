@@ -99,5 +99,16 @@
   },
   "icebreaker": {
     "click": "انقر لاستخدامها كرسالة"
+  },
+  "match": {
+    "suggested": "{{count}} اتصالات مقترحة"
+  },
+  "analytics": {
+    "title": "إحصائيات المجتمع",
+    "messages": "الرسائل",
+    "polls": "الاستطلاعات",
+    "badges": "الشارات",
+    "rooms": "الغرف",
+    "topUsers": "الأكثر نشاطاً"
   }
 }

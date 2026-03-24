@@ -99,5 +99,16 @@
   },
   "icebreaker": {
     "click": "संदेश के रूप में उपयोग करने के लिए क्लिक करें"
+  },
+  "match": {
+    "suggested": "{{count}} सुझाए गए कनेक्शन"
+  },
+  "analytics": {
+    "title": "समुदाय आँकड़े",
+    "messages": "संदेश",
+    "polls": "मतदान",
+    "badges": "बैज",
+    "rooms": "कमरे",
+    "topUsers": "सबसे सक्रिय"
   }
 }
