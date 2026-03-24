@@ -18,7 +18,7 @@ export function useTypingIndicator(community: string, roomId: string | null, use
       .on("presence", { event: "sync" }, () => {
         const state = channel.presenceState();
         const users = Object.keys(state).filter(
-          (u) => u !== username && state[u]?.some((s: { is_typing?: boolean }) => s.is_typing)
+          (u) => u !== username && state[u]?.some((s: Record<string, unknown>) => s.is_typing)
         );
         setTypingUsers(users);
       })
