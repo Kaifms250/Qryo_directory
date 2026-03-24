@@ -99,5 +99,16 @@
   },
   "icebreaker": {
     "click": "Clic para usar como mensaje"
+  },
+  "match": {
+    "suggested": "{{count}} conexiones sugeridas"
+  },
+  "analytics": {
+    "title": "Estadísticas",
+    "messages": "Mensajes",
+    "polls": "Encuestas",
+    "badges": "Insignias",
+    "rooms": "Salas",
+    "topUsers": "Más activos"
   }
 }

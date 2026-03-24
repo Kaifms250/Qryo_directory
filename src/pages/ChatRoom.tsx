@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { motion, AnimatePresence } from "framer-motion";
 import { communities } from "@/lib/communities";
 import { useChat } from "@/hooks/useChat";
 import { usePresence } from "@/hooks/usePresence";
@@ -8,6 +9,8 @@ import { usePolls } from "@/hooks/usePolls";
 import { useBadges } from "@/hooks/useBadges";
 import { useUserProfile } from "@/hooks/useUserProfile";
 import { useRoomMembers } from "@/hooks/useRooms";
+import { useTypingIndicator } from "@/hooks/useTypingIndicator";
+import { useAnalytics } from "@/hooks/useAnalytics";
 import { ChatMessage } from "@/components/ChatMessage";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AccountSwitcher } from "@/components/AccountSwitcher";
@@ -18,6 +21,9 @@ import { BadgePopover } from "@/components/BadgePopover";
 import { ProfileCustomizer } from "@/components/ProfileCustomizer";
 import { VoiceMessageButton } from "@/components/VoiceMessageButton";
 import { RoomAdminControls } from "@/components/RoomAdminControls";
+import { TypingIndicator } from "@/components/TypingIndicator";
+import { SmartMatchPanel } from "@/components/SmartMatchPanel";
+import { AnalyticsDashboard } from "@/components/AnalyticsDashboard";
 import { sanitizeInput, createRateLimiter } from "@/lib/sanitize";
 import { addAccount } from "@/lib/accounts";
 import { ArrowLeft, Send, Loader2, Pin } from "lucide-react";
@@ -49,6 +55,8 @@ export default function ChatRoom() {
   const { giveBadge, getBadgeCounts } = useBadges(communityId || "");
   const { profile, updateProfile } = useUserProfile(username);
   const { members, joinRoom, kickUser, muteUser, unmuteUser } = useRoomMembers(roomId || "");
+  const { typingUsers, setTyping } = useTypingIndicator(communityId || "", roomId, username);
+  const { track } = useAnalytics(username);
 
   const isAdmin = useMemo(
     () => members.some((m) => m.username === username && m.role === "admin"),
@@ -85,6 +93,13 @@ export default function ChatRoom() {
     if (el) el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, [messages]);
 
+  // Track room entry
+  useEffect(() => {
+    if (communityId && username) {
+      track("room_entered", { community: communityId, room: roomId || "main" });
+    }
+  }, [communityId, roomId, username, track]);
+
   if (!community) {
     navigate("/", { replace: true });
     return null;
@@ -96,7 +111,9 @@ export default function ChatRoom() {
     if (isMuted) { toast.error(t("rooms.youAreMuted")); return; }
     if (!messageRateLimiter.canProceed()) { toast.error(t("chat.rateLimited")); return; }
     setInput("");
+    setTyping(false);
     await sendMessage(username, sanitized);
+    track("message_sent", { community: communityId || "", type: "text" });
     inputRef.current?.focus();
   };
 
@@ -104,6 +121,7 @@ export default function ChatRoom() {
     if (isMuted) { toast.error(t("rooms.youAreMuted")); return; }
     const audioUrl = URL.createObjectURL(blob);
     await sendMessage(username, "🎤 Voice message", "voice", { audioUrl, duration });
+    track("message_sent", { community: communityId || "", type: "voice" });
   };
 
   const handlePin = async (messageId: string) => {
@@ -120,11 +138,18 @@ export default function ChatRoom() {
       });
       setPinnedIds((prev) => new Set(prev).add(messageId));
     }
+    track("message_pinned", { community: communityId || "" });
   };
 
   const handleAccountSwitch = (newUsername: string) => {
     setUsername(newUsername);
     localStorage.setItem("chat-username", newUsername);
+    track("account_switched", { to: newUsername });
+  };
+
+  const handleInputChange = (value: string) => {
+    setInput(value);
+    setTyping(value.length > 0);
   };
 
   return (
@@ -136,7 +161,11 @@ export default function ChatRoom() {
       </div>
 
       {/* Header */}
-      <div className="relative z-10 flex-shrink-0">
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="relative z-10 flex-shrink-0"
+      >
         <div className="relative flex items-center gap-2 px-4 py-3">
           <button onClick={() => navigate("/")} className="p-2 rounded-lg bg-secondary/80 backdrop-blur hover:bg-secondary transition-colors">
             <ArrowLeft className="h-4 w-4 text-foreground" />
@@ -147,13 +176,18 @@ export default function ChatRoom() {
               {roomId ? members.find((m) => m.role === "admin")?.username + "'s Room" : t(`communities.${community.id}`)}
             </h1>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-              <span className={`h-2 w-2 rounded-full ${onlineCount > 0 ? "bg-green-500 animate-pulse" : "bg-muted-foreground/40"}`} />
+              <motion.span
+                className={`h-2 w-2 rounded-full ${onlineCount > 0 ? "bg-green-500" : "bg-muted-foreground/40"}`}
+                animate={onlineCount > 0 ? { scale: [1, 1.3, 1] } : {}}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
               <span>{onlineCount} {t("chat.online")}</span>
             </div>
           </div>
 
           <div className="flex items-center gap-1.5">
-            <CreatePollDialog onCreatePoll={async (q, o) => await createPoll(q, o, username)} />
+            <AnalyticsDashboard community={communityId || ""} />
+            <CreatePollDialog onCreatePoll={async (q, o) => { await createPoll(q, o, username); track("poll_created", { community: communityId || "" }); }} />
             <ProfileCustomizer profile={profile} onUpdate={updateProfile} />
             {roomId && (
               <RoomAdminControls
@@ -170,10 +204,15 @@ export default function ChatRoom() {
             <LanguageSwitcher />
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Messages area */}
       <div ref={scrollRef} className="relative z-10 flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-thin">
+        {/* Smart Match */}
+        {!loading && (
+          <SmartMatchPanel username={username} community={communityId || ""} />
+        )}
+
         {/* Icebreaker */}
         {!loading && messages.length === 0 && (
           <IcebreakerBanner community={communityId || "gaming"} onUse={(text) => setInput(text)} />
@@ -186,7 +225,7 @@ export default function ChatRoom() {
             poll={poll}
             votes={votes[poll.id] || []}
             username={username}
-            onVote={(pid, idx) => vote(pid, idx, username)}
+            onVote={(pid, idx) => { vote(pid, idx, username); track("poll_voted", { community: communityId || "" }); }}
           />
         ))}
 
@@ -201,53 +240,70 @@ export default function ChatRoom() {
             </p>
           </div>
         ) : (
-          messages.map((msg) => (
-            <div key={msg.id} className="group relative">
-              {pinnedIds.has(msg.id) && (
-                <div className="flex items-center gap-1 mb-1 text-xs text-primary">
-                  <Pin className="h-3 w-3" /> {t("chat.pinned")}
-                </div>
-              )}
-              <ChatMessage
-                message={msg}
-                isOwn={msg.username === username}
-                profile={profile}
-                badgeSlot={
-                  msg.username !== username ? (
-                    <BadgePopover
-                      targetUsername={msg.username}
-                      currentUsername={username}
-                      badgeCounts={getBadgeCounts(msg.username)}
-                      onGiveBadge={(type) => giveBadge(msg.username, type, username)}
-                    >
-                      <span className="text-xs font-medium text-primary">{msg.username}</span>
-                    </BadgePopover>
-                  ) : undefined
-                }
-              />
-              {isAdmin && (
-                <button
-                  onClick={() => handlePin(msg.id)}
-                  className="absolute top-0 end-0 p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity bg-secondary/80 hover:bg-secondary"
-                  title={pinnedIds.has(msg.id) ? "Unpin" : "Pin"}
-                >
-                  <Pin className={`h-3 w-3 ${pinnedIds.has(msg.id) ? "text-primary" : "text-muted-foreground"}`} />
-                </button>
-              )}
-            </div>
-          ))
+          <AnimatePresence initial={false}>
+            {messages.map((msg) => (
+              <motion.div
+                key={msg.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
+                className="group relative"
+              >
+                {pinnedIds.has(msg.id) && (
+                  <div className="flex items-center gap-1 mb-1 text-xs text-primary">
+                    <Pin className="h-3 w-3" /> {t("chat.pinned")}
+                  </div>
+                )}
+                <ChatMessage
+                  message={msg}
+                  isOwn={msg.username === username}
+                  profile={profile}
+                  badgeSlot={
+                    msg.username !== username ? (
+                      <BadgePopover
+                        targetUsername={msg.username}
+                        currentUsername={username}
+                        badgeCounts={getBadgeCounts(msg.username)}
+                        onGiveBadge={async (type) => { const result = await giveBadge(msg.username, type, username); track("badge_given", { community: communityId || "", type }); return result; }}
+                      >
+                        <span className="text-xs font-medium text-primary">{msg.username}</span>
+                      </BadgePopover>
+                    ) : undefined
+                  }
+                />
+                {isAdmin && (
+                  <button
+                    onClick={() => handlePin(msg.id)}
+                    className="absolute top-0 end-0 p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity bg-secondary/80 hover:bg-secondary"
+                    title={pinnedIds.has(msg.id) ? "Unpin" : "Pin"}
+                  >
+                    <Pin className={`h-3 w-3 ${pinnedIds.has(msg.id) ? "text-primary" : "text-muted-foreground"}`} />
+                  </button>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
         )}
       </div>
 
+      {/* Typing indicator */}
+      <div className="relative z-10">
+        <TypingIndicator typingUsers={typingUsers} />
+      </div>
+
       {/* Input */}
-      <div className="relative z-10 flex-shrink-0 px-4 pb-4 pt-2">
+      <motion.div
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="relative z-10 flex-shrink-0 px-4 pb-4 pt-2"
+      >
         <div className="flex items-center gap-2 bg-card border border-border rounded-xl px-3 py-2">
           <VoiceMessageButton onSend={handleVoice} />
           <input
             ref={inputRef}
             type="text"
             value={input}
-            onChange={(e) => setInput(e.target.value)}
+            onChange={(e) => handleInputChange(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder={isMuted ? t("rooms.youAreMuted") : t("chat.messagePlaceholder", { name: t(`communities.${community.id}`) })}
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground focus:outline-none"
@@ -262,7 +318,7 @@ export default function ChatRoom() {
             <Send className="h-4 w-4" />
           </button>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
