@@ -264,7 +264,7 @@ export default function ChatRoom() {
                         targetUsername={msg.username}
                         currentUsername={username}
                         badgeCounts={getBadgeCounts(msg.username)}
-                        onGiveBadge={(type) => { giveBadge(msg.username, type, username); track("badge_given", { community: communityId || "", type }); }}
+                        onGiveBadge={async (type) => { await giveBadge(msg.username, type, username); track("badge_given", { community: communityId || "", type }); }}
                       >
                         <span className="text-xs font-medium text-primary">{msg.username}</span>
                       </BadgePopover>
