@@ -5,7 +5,7 @@ import { communities } from "@/lib/communities";
 import { CommunityCard } from "@/components/CommunityCard";
 import { AppNavbar } from "@/components/AppNavbar";
 import { CreateIdBanner } from "@/components/CreateIdBanner";
-import { AccountSwitcher } from "@/components/AccountSwitcher";
+
 import { usePresenceCounts } from "@/hooks/usePresence";
 import { useRooms } from "@/hooks/useRooms";
 import { addAccount } from "@/lib/accounts";
