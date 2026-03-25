@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 15% 8%;
+    --foreground: 0 0% 95%;
+    --card: 230 15% 12%;
+    --card-foreground: 0 0% 95%;
+    --popover: 230 15% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 160 84% 52%;
+    --primary-foreground: 230 15% 8%;
+    --secondary: 230 15% 18%;
+    --secondary-foreground: 0 0% 85%;
+    --muted: 230 10% 16%;
+    --muted-foreground: 230 10% 55%;
+    --accent: 280 80% 65%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 230 15% 20%;
+    --input: 230 15% 20%;
+    --ring: 160 84% 52%;
+    --radius: 0.75rem;
+
+    /* Community-specific tokens */
+    --gaming-primary: 270 80% 60%;
+    --gaming-secondary: 180 80% 50%;
+    --gaming-glow: 270 100% 70%;
+
+    --tech-primary: 190 90% 50%;
+    --tech-secondary: 210 80% 40%;
+    --tech-glow: 190 100% 60%;
+
+    --anime-primary: 330 80% 65%;
+    --anime-secondary: 15 80% 60%;
+    --anime-glow: 330 100% 75%;
+
+    --nature-primary: 145 60% 45%;
+    --nature-secondary: 95 50% 50%;
+    --nature-glow: 145 80% 55%;
+
+    --music-primary: 30 85% 55%;
+    --music-secondary: 15 70% 45%;
+    --music-glow: 30 100% 65%;
+
+    --art-primary: 350 75% 55%;
+    --art-secondary: 45 85% 60%;
+    --art-glow: 350 90% 65%;
+
+    --sidebar-background: 230 15% 10%;
+    --sidebar-foreground: 0 0% 85%;
+    --sidebar-primary: 160 84% 52%;
+    --sidebar-primary-foreground: 230 15% 8%;
+    --sidebar-accent: 230 15% 18%;
+    --sidebar-accent-foreground: 0 0% 85%;
+    --sidebar-border: 230 15% 20%;
+    --sidebar-ring: 160 84% 52%;
+
+    font-family: 'Outfit', system-ui, sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .card-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+  .card-shimmer::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 40%,
+      hsl(0 0% 100% / 0.06) 45%,
+      hsl(0 0% 100% / 0.12) 50%,
+      hsl(0 0% 100% / 0.06) 55%,
+      transparent 60%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+  .card-shimmer:hover::after {
+    transform: translateX(100%);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 9999px;
+  }
+
+  /* Community themes */
+  .theme-gaming {
+    --primary: 270 80% 60%;
+    --ring: 270 80% 60%;
+  }
+  .theme-tech {
+    --primary: 190 90% 50%;
+    --ring: 190 90% 50%;
+  }
+  .theme-anime {
+    --primary: 330 80% 65%;
+    --ring: 330 80% 65%;
+  }
+  .theme-nature {
+    --primary: 145 60% 45%;
+    --ring: 145 60% 45%;
+  }
+  .theme-music {
+    --primary: 30 85% 55%;
+    --ring: 30 85% 55%;
+  }
+  .theme-art {
+    --primary: 350 75% 55%;
+    --ring: 350 75% 55%;
+  }
+}

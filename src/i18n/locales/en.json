@@ -1,0 +1,127 @@
+{
+  "header": {
+    "tagline": "Real-time communities",
+    "title": "Find Your",
+    "titleHighlight": "Tribe",
+    "subtitle": "Jump into themed chat rooms and connect with people who share your passions."
+  },
+  "username": {
+    "prompt": "Enter a username to unlock communities",
+    "placeholder": "Choose a username...",
+    "minChars": "At least 2 characters"
+  },
+  "chat": {
+    "online": "online",
+    "messagePlaceholder": "Message {{name}}...",
+    "beFirst": "Be the first to say something in {{name}}!",
+    "rateLimited": "Slow down! Wait a moment before sending again.",
+    "report": "Report message",
+    "reported": "Message reported. Thanks!",
+    "pinned": "Pinned"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "hi": "हिन्दी"
+  },
+  "communities": {
+    "gaming": "Gaming",
+    "gamingDesc": "Level up with fellow gamers",
+    "tech": "Tech",
+    "techDesc": "Build the future together",
+    "anime": "Anime",
+    "animeDesc": "Your otaku sanctuary",
+    "nature": "Nature",
+    "natureDesc": "Explore the wild world",
+    "music": "Music",
+    "musicDesc": "Feel the rhythm",
+    "art": "Art",
+    "artDesc": "Create without limits"
+  },
+  "nav": {
+    "home": "Home",
+    "createId": "Create ID",
+    "language": "Language",
+    "profile": "Profile"
+  },
+  "rooms": {
+    "title": "Custom Rooms",
+    "welcome": "Welcome",
+    "create": "Create Room",
+    "createRoom": "Create Room",
+    "joinRoom": "Join Room",
+    "roomName": "Room name",
+    "description": "Description (optional)",
+    "public": "Public",
+    "enterRoomId": "Enter Room ID",
+    "createTitle": "Create a New Room",
+    "namePlaceholder": "Room name...",
+    "descPlaceholder": "Description (optional)...",
+    "private": "Private room",
+    "creating": "Creating...",
+    "join": "Join",
+    "joinTitle": "Join by Room ID",
+    "idPlaceholder": "Enter room ID...",
+    "notFound": "Room not found. Check the ID and try again.",
+    "id": "ID",
+    "by": "by",
+    "noRooms": "No rooms yet in this community. Create one!",
+    "idCopied": "Room ID copied!",
+    "copyId": "Copy Room ID",
+    "adminControls": "Admin Controls",
+    "kick": "Kick user",
+    "mute": "Mute user",
+    "unmute": "Unmute user",
+    "youAreMuted": "You are muted in this room."
+  },
+  "polls": {
+    "poll": "Poll",
+    "create": "Create Poll",
+    "createTitle": "Create a Poll",
+    "questionPlaceholder": "Ask a question...",
+    "option": "Option",
+    "addOption": "Add option",
+    "votes": "votes"
+  },
+  "badges": {
+    "giveToUser": "Give {{user}} a badge",
+    "alreadyGiven": "You've already given this badge!",
+    "given": "{{badge}} badge given!"
+  },
+  "accounts": {
+    "title": "Your Accounts",
+    "add": "Add Account",
+    "newPlaceholder": "New username..."
+  },
+  "profile": {
+    "customize": "Customize Profile",
+    "title": "Your Profile",
+    "avatarStyle": "Avatar Style",
+    "bubbleColor": "Chat Bubble Color",
+    "bio": "Bio",
+    "bioPlaceholder": "Tell people about yourself..."
+  },
+  "voice": {
+    "hold": "Hold to record",
+    "stop": "Release to send",
+    "tooLong": "Voice messages can't exceed 60 seconds.",
+    "noPermission": "Microphone access denied."
+  },
+  "icebreaker": {
+    "click": "Click to use as your message"
+  },
+  "match": {
+    "suggested": "{{count}} suggested connections"
+  },
+  "analytics": {
+    "title": "Community Stats",
+    "messages": "Messages",
+    "polls": "Polls",
+    "badges": "Badges",
+    "rooms": "Rooms",
+    "topUsers": "Most Active"
+  }
+}

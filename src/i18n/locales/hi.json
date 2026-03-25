@@ -1,0 +1,114 @@
+{
+  "header": {
+    "tagline": "रीयल-टाइम समुदाय",
+    "title": "अपनी",
+    "titleHighlight": "टोली खोजें",
+    "subtitle": "थीम वाली चैट रूम में शामिल हों और अपने जुनून साझा करने वाले लोगों से जुड़ें।"
+  },
+  "username": {
+    "prompt": "समुदायों को अनलॉक करने के लिए उपयोगकर्ता नाम दर्ज करें",
+    "placeholder": "उपयोगकर्ता नाम चुनें...",
+    "minChars": "कम से कम 2 अक्षर"
+  },
+  "chat": {
+    "online": "ऑनलाइन",
+    "messagePlaceholder": "{{name}} को संदेश...",
+    "beFirst": "{{name}} में सबसे पहले कुछ कहें!",
+    "rateLimited": "धीरे! फिर से भेजने से पहले एक पल रुकें।",
+    "report": "संदेश रिपोर्ट करें",
+    "reported": "संदेश रिपोर्ट किया गया। धन्यवाद!",
+    "pinned": "पिन किया गया"
+  },
+  "language": {
+    "label": "भाषा",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "hi": "हिन्दी"
+  },
+  "communities": {
+    "gaming": "गेमिंग",
+    "gamingDesc": "साथी गेमर्स के साथ लेवल अप करें",
+    "tech": "टेक",
+    "techDesc": "साथ मिलकर भविष्य बनाएं",
+    "anime": "एनीमे",
+    "animeDesc": "आपका ओटाकू अभयारण्य",
+    "nature": "प्रकृति",
+    "natureDesc": "जंगली दुनिया की खोज करें",
+    "music": "संगीत",
+    "musicDesc": "ताल को महसूस करें",
+    "art": "कला",
+    "artDesc": "बिना सीमा के बनाएं"
+  },
+  "rooms": {
+    "title": "कस्टम रूम",
+    "create": "रूम बनाएं",
+    "createTitle": "नया रूम बनाएं",
+    "namePlaceholder": "रूम का नाम...",
+    "descPlaceholder": "विवरण (वैकल्पिक)...",
+    "private": "निजी रूम",
+    "creating": "बना रहे हैं...",
+    "join": "शामिल हों",
+    "joinTitle": "ID से शामिल हों",
+    "idPlaceholder": "रूम ID दर्ज करें...",
+    "notFound": "रूम नहीं मिला।",
+    "id": "ID",
+    "by": "द्वारा",
+    "noRooms": "अभी कोई रूम नहीं। एक बनाएं!",
+    "idCopied": "रूम ID कॉपी हो गई!",
+    "copyId": "ID कॉपी करें",
+    "adminControls": "व्यवस्थापक नियंत्रण",
+    "kick": "निकालें",
+    "mute": "म्यूट करें",
+    "unmute": "अनम्यूट करें",
+    "youAreMuted": "इस रूम में आप म्यूट हैं।"
+  },
+  "polls": {
+    "poll": "मतदान",
+    "create": "मतदान बनाएं",
+    "createTitle": "मतदान बनाएं",
+    "questionPlaceholder": "सवाल पूछें...",
+    "option": "विकल्प",
+    "addOption": "विकल्प जोड़ें",
+    "votes": "वोट"
+  },
+  "badges": {
+    "giveToUser": "{{user}} को बैज दें",
+    "alreadyGiven": "आपने यह बैज पहले ही दिया है!",
+    "given": "{{badge}} बैज दिया गया!"
+  },
+  "accounts": {
+    "title": "आपके खाते",
+    "add": "खाता जोड़ें",
+    "newPlaceholder": "नया नाम..."
+  },
+  "profile": {
+    "customize": "प्रोफाइल अनुकूलित करें",
+    "title": "आपकी प्रोफ़ाइल",
+    "avatarStyle": "अवतार शैली",
+    "bubbleColor": "चैट बबल रंग",
+    "bio": "बायो",
+    "bioPlaceholder": "अपने बारे में बताएं..."
+  },
+  "voice": {
+    "hold": "रिकॉर्ड करने के लिए दबाएं",
+    "stop": "भेजने के लिए छोड़ें",
+    "tooLong": "वॉयस संदेश 60 सेकंड से अधिक नहीं।",
+    "noPermission": "माइक्रोफ़ोन एक्सेस अस्वीकृत।"
+  },
+  "icebreaker": {
+    "click": "संदेश के रूप में उपयोग करने के लिए क्लिक करें"
+  },
+  "match": {
+    "suggested": "{{count}} सुझाए गए कनेक्शन"
+  },
+  "analytics": {
+    "title": "समुदाय आँकड़े",
+    "messages": "संदेश",
+    "polls": "मतदान",
+    "badges": "बैज",
+    "rooms": "कमरे",
+    "topUsers": "सबसे सक्रिय"
+  }
+}

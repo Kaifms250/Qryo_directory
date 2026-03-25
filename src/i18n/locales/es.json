@@ -1,0 +1,114 @@
+{
+  "header": {
+    "tagline": "Comunidades en tiempo real",
+    "title": "Encuentra Tu",
+    "titleHighlight": "Tribu",
+    "subtitle": "Únete a salas de chat temáticas y conecta con personas que comparten tus pasiones."
+  },
+  "username": {
+    "prompt": "Ingresa un nombre de usuario para desbloquear comunidades",
+    "placeholder": "Elige un nombre de usuario...",
+    "minChars": "Al menos 2 caracteres"
+  },
+  "chat": {
+    "online": "en línea",
+    "messagePlaceholder": "Mensaje a {{name}}...",
+    "beFirst": "¡Sé el primero en decir algo en {{name}}!",
+    "rateLimited": "¡Más despacio! Espera un momento antes de enviar de nuevo.",
+    "report": "Reportar mensaje",
+    "reported": "Mensaje reportado. ¡Gracias!",
+    "pinned": "Fijado"
+  },
+  "language": {
+    "label": "Idioma",
+    "en": "English",
+    "ar": "العربية",
+    "es": "Español",
+    "fr": "Français",
+    "hi": "हिन्दी"
+  },
+  "communities": {
+    "gaming": "Juegos",
+    "gamingDesc": "Sube de nivel con otros gamers",
+    "tech": "Tecnología",
+    "techDesc": "Construye el futuro juntos",
+    "anime": "Anime",
+    "animeDesc": "Tu santuario otaku",
+    "nature": "Naturaleza",
+    "natureDesc": "Explora el mundo salvaje",
+    "music": "Música",
+    "musicDesc": "Siente el ritmo",
+    "art": "Arte",
+    "artDesc": "Crea sin límites"
+  },
+  "rooms": {
+    "title": "Salas Personalizadas",
+    "create": "Crear Sala",
+    "createTitle": "Crear Nueva Sala",
+    "namePlaceholder": "Nombre de la sala...",
+    "descPlaceholder": "Descripción (opcional)...",
+    "private": "Sala privada",
+    "creating": "Creando...",
+    "join": "Unirse",
+    "joinTitle": "Unirse por ID",
+    "idPlaceholder": "Ingresa el ID...",
+    "notFound": "Sala no encontrada.",
+    "id": "ID",
+    "by": "por",
+    "noRooms": "No hay salas aún. ¡Crea una!",
+    "idCopied": "¡ID copiado!",
+    "copyId": "Copiar ID",
+    "adminControls": "Controles de Admin",
+    "kick": "Expulsar",
+    "mute": "Silenciar",
+    "unmute": "Activar sonido",
+    "youAreMuted": "Estás silenciado en esta sala."
+  },
+  "polls": {
+    "poll": "Encuesta",
+    "create": "Crear Encuesta",
+    "createTitle": "Crear Encuesta",
+    "questionPlaceholder": "Haz una pregunta...",
+    "option": "Opción",
+    "addOption": "Agregar opción",
+    "votes": "votos"
+  },
+  "badges": {
+    "giveToUser": "Dale a {{user}} una insignia",
+    "alreadyGiven": "¡Ya diste esta insignia!",
+    "given": "¡Insignia de {{badge}} otorgada!"
+  },
+  "accounts": {
+    "title": "Tus Cuentas",
+    "add": "Agregar Cuenta",
+    "newPlaceholder": "Nuevo nombre..."
+  },
+  "profile": {
+    "customize": "Personalizar Perfil",
+    "title": "Tu Perfil",
+    "avatarStyle": "Estilo de Avatar",
+    "bubbleColor": "Color de Burbuja",
+    "bio": "Bio",
+    "bioPlaceholder": "Cuéntale a la gente sobre ti..."
+  },
+  "voice": {
+    "hold": "Mantén presionado para grabar",
+    "stop": "Suelta para enviar",
+    "tooLong": "Los mensajes de voz no pueden exceder 60 segundos.",
+    "noPermission": "Acceso al micrófono denegado."
+  },
+  "icebreaker": {
+    "click": "Clic para usar como mensaje"
+  },
+  "match": {
+    "suggested": "{{count}} conexiones sugeridas"
+  },
+  "analytics": {
+    "title": "Estadísticas",
+    "messages": "Mensajes",
+    "polls": "Encuestas",
+    "badges": "Insignias",
+    "rooms": "Salas",
+    "topUsers": "Más activos"
+  }
+}
