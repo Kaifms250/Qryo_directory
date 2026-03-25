@@ -5,7 +5,7 @@ import { communities } from "@/lib/communities";
 import { CommunityCard } from "@/components/CommunityCard";
 import { AppNavbar } from "@/components/AppNavbar";
 import { CreateIdBanner } from "@/components/CreateIdBanner";
-import { AccountSwitcher } from "@/components/AccountSwitcher";
+
 import { usePresenceCounts } from "@/hooks/usePresence";
 import { useRooms } from "@/hooks/useRooms";
 import { addAccount } from "@/lib/accounts";
@@ -59,19 +59,13 @@ export default function Rooms() {
       <div className={`${isMobile ? "pb-20" : "pr-16"}`}>
         <div className="max-w-5xl mx-auto px-4 py-8">
           {/* Header */}
-          <div className="flex items-center justify-between mb-6">
-            <div>
-              <h1 className="text-2xl font-bold text-foreground">
-                {t("header.title", "Explore")} <span className="text-primary text-glow">{t("header.titleHighlight", "Communities")}</span>
-              </h1>
-              <p className="text-sm text-muted-foreground mt-1">
-                {t("rooms.welcome", "Welcome")}, <span className="text-primary font-medium">{username}</span>
-              </p>
-            </div>
-            <AccountSwitcher activeUsername={username} onSwitch={(newName) => {
-              localStorage.setItem("chat-username", newName);
-              window.location.reload();
-            }} />
+          <div className="mb-6">
+            <h1 className="text-2xl font-bold text-foreground">
+              {t("header.title", "Explore")} <span className="text-primary text-glow">{t("header.titleHighlight", "Communities")}</span>
+            </h1>
+            <p className="text-sm text-muted-foreground mt-1">
+              {t("rooms.welcome", "Welcome")}, <span className="text-primary font-medium">{username}</span>
+            </p>
           </div>
 
           {/* Create ID Banner */}
